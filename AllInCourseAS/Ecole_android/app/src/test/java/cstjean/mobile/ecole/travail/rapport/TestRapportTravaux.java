@@ -1,15 +1,20 @@
-package cstjean.mobile.travail.rapport;
+package cstjean.mobile.ecole.travail.rapport;
 
-import cstjean.mobile.travail.CoursSession;
-import cstjean.mobile.travail.Travail;
+import static org.junit.Assert.assertEquals;
+
+import cstjean.mobile.ecole.travail.CoursSession;
+
 import junit.framework.TestCase;
+
+import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import static org.junit.Assert.assertEquals;
+import cstjean.mobile.ecole.travail.Travail;
 
-public class TestRapportTravaux extends TestCase {
+public class TestRapportTravaux {
+    @Test
     public void testRapportTravaux() {
         CoursSession coursSession = new CoursSession("Philo", "101");
         Calendar dateRemise = new GregorianCalendar(2026, Calendar.SEPTEMBER, 10);

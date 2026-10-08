@@ -1,9 +1,15 @@
-package cstjean.mobile.travail;
+package cstjean.mobile.ecole.travail;
+
+import static org.junit.Assert.assertEquals;
 
 import junit.framework.TestCase;
 
+import org.junit.Test;
+
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import cstjean.mobile.ecole.travail.Travail;
 
 /**
  * Tests pour la classe travail.
@@ -12,11 +18,12 @@ import java.util.GregorianCalendar;
  *
  * @author Kevin Pariseau
  */
-public class TestTravail extends TestCase {
+public class TestTravail {
 
     /**
      * Teste la creation de l'objet travail.
      */
+    @Test
     public void testCreer() {
         Calendar dateRemise = new GregorianCalendar(2026, Calendar.SEPTEMBER, 10);
 

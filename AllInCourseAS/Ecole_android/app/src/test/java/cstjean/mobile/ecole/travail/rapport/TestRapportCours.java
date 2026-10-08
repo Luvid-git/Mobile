@@ -1,9 +1,13 @@
-package cstjean.mobile.travail.rapport;
+package cstjean.mobile.ecole.travail.rapport;
 
-import cstjean.mobile.travail.CoursSession;
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
-public class TestRapportCours extends TestCase {
+import cstjean.mobile.ecole.travail.CoursSession;
+
+import org.junit.Test;
+
+public class TestRapportCours {
+    @Test
     public void testRapport() {
         RapportCours rapportCours = new RapportCours();
         rapportCours.ajouter(new CoursSession("Francais", "101"));

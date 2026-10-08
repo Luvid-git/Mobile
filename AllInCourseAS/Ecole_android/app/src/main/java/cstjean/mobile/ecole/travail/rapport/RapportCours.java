@@ -1,9 +1,8 @@
-package cstjean.mobile.travail.rapport;
+package cstjean.mobile.ecole.travail.rapport;
 
-import cstjean.mobile.travail.CoursSession;
+import cstjean.mobile.ecole.travail.CoursSession;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 

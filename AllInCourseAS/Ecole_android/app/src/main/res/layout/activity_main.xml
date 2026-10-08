@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/texteAccent"
-        android:text="@string/txt_nomDepartement" />
+        tools:text="@string/txt_nomDepartement" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

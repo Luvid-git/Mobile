@@ -1,4 +1,4 @@
-package cstjean.mobile.travail;
+package cstjean.mobile.ecole.travail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,5 +90,9 @@ public class CoursSession implements Comparable<CoursSession> {
         }
 
         return getNumero().compareTo(o.getNumero());
+    }
+
+    public String getDepartementNumero() {
+        return departement + " " + numero;
     }
 }

@@ -1,4 +1,6 @@
-package cstjean.mobile.travail;
+package cstjean.mobile.ecole.travail;
+
+import static org.junit.Assert.assertEquals;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;

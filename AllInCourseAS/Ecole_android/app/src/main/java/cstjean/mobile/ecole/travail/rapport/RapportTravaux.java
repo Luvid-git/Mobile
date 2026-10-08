@@ -1,7 +1,9 @@
-package cstjean.mobile.travail.rapport;
+package cstjean.mobile.ecole.travail.rapport;
 
-import cstjean.mobile.travail.CoursSession;
-import cstjean.mobile.travail.Travail;
+import android.annotation.SuppressLint;
+
+import cstjean.mobile.ecole.travail.CoursSession;
+import cstjean.mobile.ecole.travail.Travail;
 
 import java.text.SimpleDateFormat;
 
@@ -10,7 +12,7 @@ public class RapportTravaux extends Rapport {
     static final String PIEDPAGE_RAPPORT_TRAVAUX = "--------------------";
 
     static String getRapportTravaux(CoursSession coursSession) {
-        SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
 
         StringBuilder stringBuilder = new StringBuilder();
 
