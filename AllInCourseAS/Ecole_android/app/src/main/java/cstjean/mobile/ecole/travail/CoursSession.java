@@ -1,5 +1,7 @@
 package cstjean.mobile.ecole.travail;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,6 +83,8 @@ public class CoursSession implements Comparable<CoursSession> {
         compteur = 0;
     }
 
+    private URL url;
+
     @Override
     public int compareTo(CoursSession o) {
         int compareDepartement = getDepartement().compareTo(o.getDepartement());
@@ -94,5 +98,13 @@ public class CoursSession implements Comparable<CoursSession> {
 
     public String getDepartementNumero() {
         return departement + " " + numero;
+    }
+
+    public URL getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) throws MalformedURLException {
+        this.url = new URL(url);
     }
 }

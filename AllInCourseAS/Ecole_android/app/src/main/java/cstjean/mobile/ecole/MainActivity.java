@@ -1,6 +1,7 @@
 package cstjean.mobile.ecole;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Log.d("ProjetEcole", "onCreate");
 
         btnPrecedent = findViewById(R.id.btn_precedent);
         btnSuivant = findViewById(R.id.btn_suivant);
@@ -54,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnSuivant.setOnClickListener(view -> {
-            indexCourant += 1;
+            //indexCourant += 1;
             updateDepartement();
         });
         updateDepartement();

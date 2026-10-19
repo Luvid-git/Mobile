@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.net.MalformedURLException;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -67,5 +68,12 @@ public class TestCoursSession {
         assertEquals(0, coursSession.compareTo(new CoursSession("Philo", "101")));
         assertTrue(coursSession.compareTo(new CoursSession("Philo", "201")) < 0);
         assertTrue(coursSession.compareTo(new CoursSession("Math", "101")) > 0);
+    }
+
+    @Test
+    public void testURL() throws MalformedURLException {
+        final String url = "https://www.cstjean.qc.ca/philo101";
+        coursSession.setUrl(url);
+        assertEquals(url, coursSession.getUrl().toString());
     }
 }
