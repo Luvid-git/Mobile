@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -16,8 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cstjean.mobile.ecole.travail.CoursSession;
+import cstjean.mobile.ecole.travail.SingletonEcole;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String KEY_INDEXCOURANT = "indexcourant";
     private ImageButton btnSuivant;
     private ImageButton btnPrecedent;
 
@@ -29,6 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        if (savedInstanceState != null) {
+            indexCourant = savedInstanceState.getInt(KEY_INDEXCOURANT, 0);
+        }
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -56,15 +64,29 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnSuivant.setOnClickListener(view -> {
-            //indexCourant += 1;
+            indexCourant += 1;
             updateDepartement();
         });
         updateDepartement();
     }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.d("ProjetEcole", "onSaveInstanceState");
+        outState.putInt(KEY_INDEXCOURANT, indexCourant);
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("ProjetEcole", "onStart");
+    }
     private void updateDepartement() {
-        String departement = listeCoursSession.get(indexCourant).getDepartementNumero();
+        String departement = SingletonEcole.getInstance().getCoursSession(indexCourant).getDepartementNumero();
         txtDepartement.setText(departement);
-        btnSuivant.setEnabled(indexCourant < (listeCoursSession.size() - 1));
+        btnSuivant.setEnabled(indexCourant < (SingletonEcole.getInstance().getNbCoursSession() - 1));
         btnPrecedent.setEnabled(indexCourant > 0);
     }
 }

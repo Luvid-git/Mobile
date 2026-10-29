@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">exampleViewDyn</string>
+    <string name="btn_bouton">BOUTON</string>
+</resources>

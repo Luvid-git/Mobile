@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Formatif View Dynamique</string>
+    <string name="txt_nombreBoutonsAAjouter">Nombre boutons à ajouter</string>
+    <string name="btn_ajouter">Ajouter</string>
+    <string name="btn">%1$d - %2$d</string>
+    <string name="btn_base">Base</string>>
+
+</resources>
