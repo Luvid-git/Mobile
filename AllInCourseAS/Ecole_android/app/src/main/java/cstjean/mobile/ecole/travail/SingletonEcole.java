@@ -26,5 +26,8 @@ public class SingletonEcole {
     public CoursSession getCoursSession(int index) {
         return listeCoursSession.get(index);
     }
+    public void addCoursSession(String departement, String numero) {
+        listeCoursSession.add(new CoursSession(departement, numero));
+    }
 }
 

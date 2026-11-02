@@ -1,5 +1,6 @@
 package cstjean.mobile.ecole;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageButton;
@@ -18,7 +19,7 @@ import java.util.List;
 import cstjean.mobile.ecole.travail.CoursSession;
 import cstjean.mobile.ecole.travail.SingletonEcole;
 
-public class MainActivity extends AppCompatActivity {
+public class ListeCoursActivity extends AppCompatActivity {
 
     private static final String KEY_INDEXCOURANT = "indexcourant";
     private ImageButton btnSuivant;
@@ -27,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtDepartement;
 
     private int indexCourant = 0;
+
+    private ImageButton btnAjoutCoursSession;
+
+    private ImageButton btnVoir;
 
     private final List<CoursSession> listeCoursSession = new ArrayList<>();
 
@@ -39,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_liste_cours);
 
         listeCoursSession.add(new CoursSession("Philo", "101"));
         listeCoursSession.add(new CoursSession("Philo", "210"));
@@ -54,9 +59,17 @@ public class MainActivity extends AppCompatActivity {
         });
         Log.d("ProjetEcole", "onCreate");
 
+        btnVoir = findViewById(R.id.btn_voir);
         btnPrecedent = findViewById(R.id.btn_precedent);
         btnSuivant = findViewById(R.id.btn_suivant);
         txtDepartement = findViewById(R.id.txt_departement);
+        btnAjoutCoursSession = findViewById(R.id.btn_ajouterCoursSession);
+
+
+        btnVoir.setOnClickListener(v -> {
+            Intent intent = DetailsCoursActivity.newIntent(ListeCoursActivity.this, indexCourant);
+            startActivity(intent);
+        });
 
         btnPrecedent.setOnClickListener(view -> {
             indexCourant -= 1;
@@ -67,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
             indexCourant += 1;
             updateDepartement();
         });
+        btnAjoutCoursSession.setOnClickListener(view -> {
+            Intent intent = AjoutCoursActivity.newIntent(ListeCoursActivity.this, indexCourant);
+            startActivity(intent);
+        });
         updateDepartement();
     }
 
@@ -76,6 +93,13 @@ public class MainActivity extends AppCompatActivity {
         Log.d("ProjetEcole", "onSaveInstanceState");
         outState.putInt(KEY_INDEXCOURANT, indexCourant);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        updateDepartement();
+    }
+
 
 
     @Override

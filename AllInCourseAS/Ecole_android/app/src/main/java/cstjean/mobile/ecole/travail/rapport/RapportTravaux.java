@@ -9,9 +9,9 @@ import java.text.SimpleDateFormat;
 
 public class RapportTravaux extends Rapport {
     static final String ENTETE_RAPPORT_TRAVAUX = "---------- TRAVAUX ----------" + SAUT_LIGNE;
-    static final String PIEDPAGE_RAPPORT_TRAVAUX = "--------------------";
+    static final String PIEDPAGE_RAPPORT_TRAVAUX = "\n--------------------";
 
-    static String getRapportTravaux(CoursSession coursSession) {
+    public static String getRapportTravaux(CoursSession coursSession) {
         @SuppressLint("SimpleDateFormat") SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
 
         StringBuilder stringBuilder = new StringBuilder();
