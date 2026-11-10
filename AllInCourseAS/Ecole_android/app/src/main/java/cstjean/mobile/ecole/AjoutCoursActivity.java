@@ -43,10 +43,8 @@ public class AjoutCoursActivity extends AppCompatActivity {
         });
     }
 
-    public static Intent newIntent(Context packageContext, int indexCourant) {
+    public static Intent newIntent(Context packageContext) {
         listeActivity = packageContext;
-        Intent intent = new Intent(packageContext, AjoutCoursActivity.class);
-        intent.putExtra(EXTRA_INDEXCOURANT, indexCourant);
-        return intent;
+        return new Intent(packageContext, AjoutCoursActivity.class);
     }
 }

@@ -15,36 +15,33 @@ import cstjean.mobile.ecole.travail.CoursSession;
 import cstjean.mobile.ecole.travail.SingletonEcole;
 import cstjean.mobile.ecole.travail.rapport.RapportTravaux;
 
-public class DetailsCoursActivity extends AppCompatActivity {
+public class DetailsCoursActivity extends AppCompatActivity implements DetailCoursFragment.Callbacks {
 
     private static final String EXTRA_INDEXCOURANT = "indexcourant";
-    private TextView txtDepartement;
-    private TextView txtNumero;
-    private TextView txtTravaux;
+    private int indexCourant;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_details_cours);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.fragment_container), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        txtDepartement = findViewById(R.id.txt_departement);
-        txtNumero = findViewById(R.id.txt_numero);
-        txtTravaux = findViewById(R.id.txt_travaux);
-
-        int indexCourant = getIntent().getIntExtra(EXTRA_INDEXCOURANT, 0);
-        CoursSession coursSession = SingletonEcole.getInstance().getCoursSession(indexCourant);
-        txtDepartement.setText(coursSession.getDepartement());
-        txtNumero.setText(coursSession.getNumero());
-        txtTravaux.setText(RapportTravaux.getRapportTravaux(coursSession));
+        indexCourant = getIntent().getIntExtra(EXTRA_INDEXCOURANT, 0);
     }
 
     public static Intent newIntent(Context packageContext, int indexCourant) {
         Intent intent = new Intent(packageContext, DetailsCoursActivity.class);
         intent.putExtra(EXTRA_INDEXCOURANT, indexCourant);
         return intent;
+    }
+
+    @Override
+    public int getIndexCourant() {
+        return indexCourant;
     }
 }
