@@ -7,7 +7,7 @@ public class SingletonEcole {
     private static SingletonEcole instance = null;
     private final List<CoursSession> listeCoursSession = new ArrayList<>();
     private SingletonEcole() {
-// Données de tests
+        // Données de tests
         listeCoursSession.add(new CoursSession("Philo", "101"));
         listeCoursSession.add(new CoursSession("Philo", "210"));
         listeCoursSession.add(new CoursSession("Math", "101"));
